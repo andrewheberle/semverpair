@@ -16,6 +16,12 @@ type rootCommand struct {
 	*simplecommand.Command
 }
 
+func (c *rootCommand) Run(ctx context.Context, cd *simplecobra.Commandeer, args []string) error {
+	cd.CobraCommand.Usage()
+
+	return fmt.Errorf("run one of the available sub-commands")
+}
+
 func Execute(ctx context.Context, args []string) error {
 	root := &rootCommand{
 		Command: simplecommand.New("semverpair", "Encode or decode semver strings"),
