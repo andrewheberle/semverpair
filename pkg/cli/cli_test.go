@@ -1,6 +1,7 @@
 package cli
 
 import (
+	"context"
 	"slices"
 	"testing"
 
@@ -166,6 +167,40 @@ func Test_encodePair(t *testing.T) {
 			}
 			if got.First.String() != tt.want.First.String() || got.Second.String() != tt.want.Second.String() {
 				t.Errorf("encodePair() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestExecute(t *testing.T) {
+	tests := []struct {
+		name    string
+		args    []string
+		wantErr bool
+	}{
+		{"no command", []string{}, false},
+		{"encode with no args", []string{"encode"}, true},
+		{"encode with valid positional args", []string{"encode", "v1.0.0", "v1.0.0"}, false},
+		{"encode with valid named args", []string{"encode", "--first", "v1.0.0", "--second", "v1.0.0"}, false},
+		{"encode with invalid postional args", []string{"encode", "invalidfirst", "invalidsecond"}, true},
+		{"encode with invalid named args", []string{"encode", "--first", "invalidfirst", "--second", "invalidsecond"}, true},
+		{"decode with no args", []string{"decode"}, true},
+		{"decode with valid positional arg", []string{"decode", "v1.20000.20000"}, false},
+		{"decode with valid named arg", []string{"decode", "--version", "v1.20000.20000"}, false},
+		{"decode with invalid postional arg", []string{"decode", "invalid"}, true},
+		{"decode with invalid name arg", []string{"decode", "--version", "invalid"}, true},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			gotErr := Execute(context.Background(), tt.args)
+			if gotErr != nil {
+				if !tt.wantErr {
+					t.Errorf("Execute() failed: %v", gotErr)
+				}
+				return
+			}
+			if tt.wantErr {
+				t.Fatal("Execute() succeeded unexpectedly")
 			}
 		})
 	}
