@@ -9,7 +9,7 @@ encode two versions as a single semver compatible version.
 ## Installation
 
 ```sh
-go install github.com/andrewheberle/semverpair
+go install github.com/andrewheberle/semverpair/cmd/semverpair
 ```
 
 ## Usage
