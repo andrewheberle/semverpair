@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/andrewheberle/semverpair/cmd/semverpair/pkg/cli"
+	"github.com/andrewheberle/semverpair/pkg/cli"
 )
 
 func main() {
