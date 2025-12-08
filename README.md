@@ -1,0 +1,26 @@
+# semverpair
+
+[![Go Report Card](https://goreportcard.com/badge/github.com/andrewheberle/semverpair?logo=go&style=flat-square)](https://goreportcard.com/report/github.com/andrewheberle/semverpair)
+
+This is a simple CLI tool using [github.com/bep/semverpair](github.com/bep/semverpair) to
+encode two versions as a single semver compatible version.
+
+## Installation
+
+```sh
+go install github.com/andrewheberle/semverpair
+```
+
+## Usage
+
+The CLI will encode a pair of versions as follows:
+
+```sh
+semverpair [--first|-f] FIRSTVERSION [--second|-s] SECONDVERSION
+```
+
+Decoding of a version pair can be performed as follows:
+
+```sh
+semverpair --decode|-d VERSION
+```
