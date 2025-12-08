@@ -17,11 +17,11 @@ go install github.com/andrewheberle/semverpair
 The CLI will encode a pair of versions as follows:
 
 ```sh
-semverpair [--first|-f] FIRSTVERSION [--second|-s] SECONDVERSION
+semverpair encode [--first|-f] FIRSTVERSION [--second|-s] SECONDVERSION
 ```
 
 Decoding of a version pair can be performed as follows:
 
 ```sh
-semverpair --decode|-d VERSION
+semverpair decode [--version|-v] VERSION
 ```
