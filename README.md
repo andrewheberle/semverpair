@@ -1,6 +1,7 @@
 # semverpair
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/andrewheberle/semverpair?logo=go&style=flat-square)](https://goreportcard.com/report/github.com/andrewheberle/semverpair)
+[![codecov](https://codecov.io/gh/andrewheberle/semverpair/branch/main/graph/badge.svg?token=4KkBld5tkj)](https://codecov.io/gh/andrewheberle/semverpair)
 
 This is a simple CLI tool using [github.com/bep/semverpair](github.com/bep/semverpair) to
 encode two versions as a single semver compatible version.
