@@ -33,6 +33,9 @@ func Execute(ctx context.Context, args []string) error {
 		&decodeCommand{
 			Command: simplecommand.New("decode", "Decode a semver string"),
 		},
+		&versionCommand{
+			Command: simplecommand.New("version", "Show version"),
+		},
 	}
 
 	// Set up simplecobra

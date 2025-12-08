@@ -189,6 +189,7 @@ func TestExecute(t *testing.T) {
 		{"decode with valid named arg", []string{"decode", "--version", "v1.20000.20000"}, false},
 		{"decode with invalid postional arg", []string{"decode", "invalid"}, true},
 		{"decode with invalid name arg", []string{"decode", "--version", "invalid"}, true},
+		{"version", []string{"version"}, false},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
