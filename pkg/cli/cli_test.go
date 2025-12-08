@@ -178,7 +178,7 @@ func TestExecute(t *testing.T) {
 		args    []string
 		wantErr bool
 	}{
-		{"no command", []string{}, false},
+		{"no command", []string{}, true},
 		{"encode with no args", []string{"encode"}, true},
 		{"encode with valid positional args", []string{"encode", "v1.0.0", "v1.0.0"}, false},
 		{"encode with valid named args", []string{"encode", "--first", "v1.0.0", "--second", "v1.0.0"}, false},
