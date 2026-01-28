@@ -126,16 +126,17 @@ func decodePair(decode string) (semverpair.Pair, error) {
 // Converts a valid semantic version string to a semverpair.Version
 func toVersion(s string) (semverpair.Version, error) {
 	// convert to canonical semver string and error immediately on blank string
-	if s = semver.Canonical(s); s == "" {
+	v := semver.Canonical(s)
+	if v == "" {
 		return semverpair.Version{}, fmt.Errorf("\"%s\" was not a valid semver string", s)
 	}
 
 	// trim any build and prerelease suffix
-	s = strings.TrimSuffix(s, semver.Build(s))
-	s = strings.TrimSuffix(s, semver.Prerelease(s))
+	v = strings.TrimSuffix(v, semver.Build(s))
+	v = strings.TrimSuffix(v, semver.Prerelease(s))
 
 	// strip leading "v" and split into parts
-	split := strings.Split(strings.TrimPrefix(s, "v"), ".")
+	split := strings.Split(strings.TrimPrefix(v, "v"), ".")
 
 	// convert to integers
 	major, err := strconv.Atoi(split[0])
