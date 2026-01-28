@@ -139,21 +139,15 @@ func toVersion(s string) (semverpair.Version, error) {
 	split := strings.Split(strings.TrimPrefix(v, "v"), ".")
 
 	// convert to integers
-	major, err := strconv.Atoi(split[0])
-	if err != nil {
-		// this should never happen
-		panic(err)
-	}
-	minor, err := strconv.Atoi(split[1])
-	if err != nil {
-		// this should never happen
-		panic(err)
-	}
-	patch, err := strconv.Atoi(split[2])
-	if err != nil {
-		// this should never happen
-		panic(err)
+	nums := make([]int, 3)
+	for n := range 3 {
+		var err error
+		nums[n], err = strconv.Atoi(split[n])
+		if err != nil {
+			// this should never happen
+			panic(err)
+		}
 	}
 
-	return semverpair.Version{Major: major, Minor: minor, Patch: patch}, nil
+	return semverpair.Version{Major: nums[0], Minor: nums[1], Patch: nums[2]}, nil
 }
