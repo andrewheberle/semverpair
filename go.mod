@@ -1,6 +1,6 @@
 module github.com/andrewheberle/semverpair
 
-go 1.24.0
+go 1.25
 
 require (
 	github.com/andrewheberle/simplecommand v0.5.0
