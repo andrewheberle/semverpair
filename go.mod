@@ -1,12 +1,12 @@
 module github.com/andrewheberle/semverpair
 
-go 1.25
+go 1.25.0
 
 require (
 	github.com/andrewheberle/simplecommand v0.5.0
 	github.com/bep/semverpair v1.0.0
 	github.com/bep/simplecobra v0.6.1
-	golang.org/x/mod v0.32.0
+	golang.org/x/mod v0.34.0
 )
 
 require (
